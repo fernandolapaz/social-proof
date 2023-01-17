@@ -1,0 +1,287 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap');
+
+/* VARIABLES */
+:root {
+    --veryDarkMagenta: hsl(300, 43%, 22%);
+    --softPink: hsl(333, 80%, 67%);
+    --darkGrayishMagenta: hsl(303, 10%, 53%);
+    --lightGrayishMagenta: hsl(300, 24%, 96%);
+    --white: hsl(0, 0%, 100%);
+    --league: 'League Spartan', sans-serif;
+}
+
+/* GENERAL SETTINGS */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+img,
+picture,
+svg {
+    display: block;
+    width: 100%;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* CUSTOM */
+    font-family: var(--league);
+    background-image: url(images/bg-pattern-top-mobile.svg), url(images/bg-pattern-bottom-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+}
+
+/* CUSTOM SETTINGS */
+
+/* MOBILE-FIRST */
+.social {
+    display: grid;
+    gap: 2.5rem;
+    padding: 5rem 1.3rem;
+    width: min(100%, 40rem);
+    margin: auto;
+}
+
+.social header {
+    display: grid;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.social header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 0.85;
+    color: var(--veryDarkMagenta);
+}
+
+.social header .description {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--darkGrayishMagenta);
+}
+
+.social .ratings-box {
+    display: grid;
+    gap: 1rem;
+}
+
+.social .ratings-box .rate {
+    display: grid;
+    gap: 1rem;
+    background-color: var(--lightGrayishMagenta);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.social .ratings-box .rate .stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.social .ratings-box .rate .stars img {
+    width: 1rem;
+    height: 1rem;
+}
+
+.social .ratings-box .rate p {
+    font-weight: 800;
+    color: hsl(300, 43%, 33%);
+    text-align: center;
+}
+
+.social .reviews-box {
+    display: grid;
+    gap: 1rem;
+}
+
+.social .reviews-box .review {
+    display: grid;
+    gap: 1.5rem;
+    background-color: var(--veryDarkMagenta);
+    padding: 2.5rem 2.5rem 2rem;
+    border-radius: 0.5rem;
+    color: var(--lightGrayishMagenta);
+}
+
+.social .reviews-box .review .customer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social .reviews-box .review .customer .avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.social .reviews-box .review .customer .name {
+    font-weight: 600;
+}
+
+.social .reviews-box .review .customer .verified {
+    color: var(--softPink);
+}
+
+.social .reviews-box .review q {
+    line-height: 1.4;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 65rem) {
+    body {
+        background-image: url(images/bg-pattern-top-desktop.svg), url(images/bg-pattern-bottom-desktop.svg);
+        background-repeat: no-repeat;
+        background-position: top left, bottom right;
+    }
+
+    .social {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'head rate'
+            'revs revs';
+        row-gap: 4.25rem;
+        column-gap: 0;
+        padding: 4.5rem 0 0;
+        width: min(77%, 70rem);
+    }
+
+    .social header {
+        grid-area: head;
+        align-content: center;
+        text-align: left;
+        padding-right: 18%;
+    }
+
+    .social header h1 {
+        font-size: clamp(2.5rem, 3.8vw, 3.5rem);
+    }
+
+    .social header .description {
+        font-size: 1.14rem;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+    .social .ratings-box {
+        grid-area: rate;
+        align-content: center;
+    }
+
+    .social .ratings-box .rate {
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        padding: 1.25rem;
+        width: 80%;
+    }
+
+    .social .ratings-box .rate .stars {
+        gap: 6%;
+    }
+
+    .social .ratings-box .rate p {
+        text-align: left;
+    }
+
+    .social .ratings-box .rate:nth-child(2) {
+        justify-self: center;
+    }
+
+    .social .ratings-box .rate:nth-child(3) {
+        justify-self: end;
+    }
+
+    .social .reviews-box {
+        grid-area: revs;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(16, 1fr);
+        row-gap: 0;
+        column-gap: 1.8rem;
+    }
+
+    .social .reviews-box .review {
+        padding: 2.5rem 2.2rem;
+    }
+
+    .social .reviews-box .review:nth-child(1) {
+        grid-row: 1/-3;
+    }
+
+    .social .reviews-box .review:nth-child(2) {
+        grid-row: 2/-2;
+    }
+
+    .social .reviews-box .review:nth-child(3) {
+        grid-row: 3/-1;
+    }
+}
+
+@media screen and (min-width: 100rem) {
+    html {
+        font-size: 16.5px;
+    }
+}
+
+@media screen and (min-width: 120rem) {
+    html {
+        font-size: 17px;
+    }
+}
+
+@media screen and (min-width: 140rem) {
+    html {
+        font-size: 17.5px;
+    }
+}
+
+@media screen and (min-width: 160rem) {
+    html {
+        font-size: 18px;
+    }
+}
+
+.attribution {
+    font-size: 12px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+}
