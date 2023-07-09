@@ -124,12 +124,6 @@ header {
     color: var(--clr-neutral-1);
 }
 
-.review:hover,
-.rate:hover {
-    box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    transition: 0.2s;
-}
-
 .buyer {
     display: flex;
     align-items: center;
